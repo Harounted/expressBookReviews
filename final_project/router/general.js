@@ -53,17 +53,17 @@ public_users.get("/isbn/:isbn", async (req, res) => {
 // this format : name%20lastname
 public_users.get("/author/:author", async(req, res) => {
   const author =  req.params.author;
-  const book = await Object.values(books).find((book) => book.author === author);
+  const fetchedBooks = await Object.values(books).filter((book) => book.author === author);
 
-  return res.status(300).json(book);
+  return res.status(300).json(fetchedBooks);
 });
 
 // Get all books based on title
 public_users.get("/title/:title", async (req, res) => {
   const title = req.params.title;
-  const book = await Object.values(books).find((book) => book.title === title);
+  const fetchedBooks = await Object.values(books).filter((book) => book.title === title);
 
-  return res.status(300).json(book);
+  return res.status(300).json(fetchedBooks);
 });
 
 //  Get book review
