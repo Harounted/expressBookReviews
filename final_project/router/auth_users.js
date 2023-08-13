@@ -32,7 +32,6 @@ const authenticatedUser = (username, password) => {
   return true;
 };
 
-//only registered users can login
 regd_users.post("/login", (req, res) => {
   const { username, password } = req.body;
 
